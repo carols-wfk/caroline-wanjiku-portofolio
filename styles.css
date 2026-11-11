@@ -356,6 +356,28 @@ body.dark-theme .contact-form textarea {
     border-color: #526078;
 }
 
+
+body.dark-theme {
+    background-color: #121212;
+    color: white;
+}
+
+body.dark-theme .section {
+    background-color: #1e1e1e;
+    color: white;
+}
+
+body.dark-theme .card {
+    background-color: #292929;
+    color: white;
+}
+
+body.dark-theme h2,
+body.dark-theme h3 {
+    color: #d4af37;
+}
+
+
 /* ===== MOBILE RESPONSIVENESS ===== */
 
 @media (max-width: 768px) {
