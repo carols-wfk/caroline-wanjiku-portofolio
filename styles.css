@@ -1,7 +1,5 @@
 
-/* =================================
-   1. GENERAL STYLING
-================================= */
+/* ===== GENERAL STYLING ===== */
 
 * {
     margin: 0;
@@ -11,39 +9,25 @@
 }
 
 :root {
-    --primary-color: #0b1d36;
-    --secondary-color: #d4af37;
-    --background-color: #f5f7fa;
-    --text-color: #333333;
-    --card-color: #ffffff;
-    --transition: 0.3s ease;
+    --navy: #0b1d36;
+    --gold: #d4af37;
+    --white: #ffffff;
+    --light: #f4f6f9;
+    --text: #333333;
+    --card: #ffffff;
 }
 
 body {
     font-family: Arial, sans-serif;
-    background-color: var(--background-color);
-    color: var(--text-color);
-    line-height: 1.6;
-    transition: var(--transition);
-}
-
-html {
-    scroll-padding-top: 80px;
-}
-
-.container {
-    width: 90%;
-    max-width: 1100px;
-    margin: auto;
-}
-
-h1, h2, h3 {
-    color: var(--primary-color);
+    background: var(--white);
+    color: var(--text);
+    line-height: 1.7;
+    transition: 0.3s;
 }
 
 a {
     text-decoration: none;
-    color: inherit;
+    color: var(--gold);
 }
 
 button {
@@ -51,178 +35,198 @@ button {
     font-family: inherit;
 }
 
-/* =================================
-   2. HEADER AND NAVIGATION
-================================= */
+/* ===== HEADER AND NAVIGATION ===== */
 
 header {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 18px 5%;
+    background: var(--navy);
+    padding: 15px 6%;
     position: sticky;
     top: 0;
     z-index: 1000;
+}
+
+.navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .logo {
-    font-size: 24px;
-    font-weight: bold;
-    color: var(--secondary-color);
+    color: var(--gold);
+    font-size: 27px;
 }
 
-nav ul {
+.navbar ul {
     display: flex;
     list-style: none;
-    gap: 20px;
+    gap: 22px;
 }
 
-nav ul li a {
+.navbar ul li a {
     color: white;
     font-weight: bold;
-    transition: var(--transition);
+    transition: 0.3s;
 }
 
-nav ul li a:hover,
-nav ul li a.active {
-    color: var(--secondary-color);
+.navbar ul li a:hover,
+.navbar ul li a.active {
+    color: var(--gold);
 }
 
-/* Mobile menu button */
-
-#menu-toggle {
+.menu-toggle {
     display: none;
     background: transparent;
     color: white;
-    border: 1px solid var(--secondary-color);
+    border: 1px solid var(--gold);
     padding: 8px 12px;
     border-radius: 5px;
     font-size: 20px;
 }
 
-/* =================================
-   3. HERO / HOME SECTION
-================================= */
+.theme-toggle {
+    background: var(--gold);
+    color: var(--navy);
+    border: none;
+    padding: 9px 14px;
+    border-radius: 5px;
+    font-weight: bold;
+}
 
-#home {
-    min-height: 85vh;
+/* ===== HOME SECTION ===== */
+
+.home {
+    min-height: 90vh;
+    background: linear-gradient(135deg, #0b1d36, #193b65);
+    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     padding: 60px 20px;
-    background: linear-gradient(
-        135deg,
-        #0b1d36,
-        #193b65
-    );
-    color: white;
 }
 
-#home h1 {
-    color: white;
-    font-size: 45px;
+.home-content {
+    max-width: 800px;
+}
+
+.welcome {
+    color: var(--gold);
+    font-weight: bold;
+    letter-spacing: 3px;
     margin-bottom: 15px;
 }
 
-#home p {
-    font-size: 20px;
+.home h1 {
+    font-size: 45px;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.home h1 span {
+    color: var(--gold);
+}
+
+.home h3 {
+    color: white;
+    margin-bottom: 20px;
+    font-size: 23px;
+}
+
+.home-content > p:not(.welcome):not(.interaction-message) {
     margin-bottom: 20px;
 }
 
-#typing-text {
-    color: var(--secondary-color);
-    font-weight: bold;
-    border-right: 2px solid var(--secondary-color);
-    padding-right: 5px;
+.typing-cursor {
+    color: var(--gold);
+    animation: blink 0.8s infinite;
 }
 
-/* =================================
-   4. BUTTONS
-================================= */
-
-.btn,
-button {
-    transition: var(--transition);
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
 }
+
+/* ===== BUTTONS ===== */
 
 .btn {
     display: inline-block;
-    background-color: var(--secondary-color);
-    color: var(--primary-color);
+    background: var(--gold);
+    color: var(--navy);
     padding: 12px 25px;
+    border: none;
     border-radius: 5px;
     font-weight: bold;
-    margin-top: 15px;
+    transition: 0.3s;
 }
 
 .btn:hover {
-    background-color: white;
+    background: white;
     transform: translateY(-3px);
 }
 
-/* =================================
-   5. GENERAL SECTIONS
-================================= */
+/* ===== GENERAL SECTIONS ===== */
 
-section {
+.section {
     padding: 70px 8%;
-}
-
-section h2 {
     text-align: center;
-    font-size: 30px;
-    margin-bottom: 30px;
-    position: relative;
 }
 
-section h2::after {
+.section h2 {
+    color: var(--navy);
+    font-size: 32px;
+    margin-bottom: 30px;
+}
+
+.section h2::after {
     content: "";
     display: block;
+    background: var(--gold);
     width: 65px;
     height: 4px;
-    background-color: var(--secondary-color);
     margin: 10px auto;
 }
 
-#about p {
+.section > p {
     max-width: 850px;
-    margin: auto;
-    text-align: center;
+    margin: 0 auto 20px;
 }
 
-/* =================================
-   6. EDUCATION, SKILLS AND PROJECTS
-================================= */
+.light {
+    background: var(--light);
+}
 
-.card-container,
-.skills-container,
-.projects-container {
+.section-intro {
+    margin-bottom: 25px !important;
+}
+
+/* ===== CARDS ===== */
+
+.container {
+    max-width: 1100px;
+    margin: 30px auto 0;
     display: grid;
-    grid-template-columns: repeat(
-        auto-fit,
-        minmax(220px, 1fr)
-    );
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 25px;
 }
 
-.card,
-.skill-card,
-.project-card {
-    background-color: var(--card-color);
+.card {
+    background: var(--card);
     padding: 25px;
     border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transition: var(--transition);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: 0.3s;
 }
 
-.card:hover,
-.skill-card:hover,
-.project-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+.card h3 {
+    color: var(--navy);
+    margin-bottom: 12px;
+}
+
+.card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
 .skill-card,
@@ -232,209 +236,185 @@ section h2::after {
 
 .skill-card.selected,
 .project-card.selected {
-    border: 2px solid var(--secondary-color);
+    border: 2px solid var(--gold);
     transform: scale(1.03);
 }
 
 .skill-card:focus-visible,
 .project-card:focus-visible {
-    outline: 3px solid var(--secondary-color);
-    outline-offset: 4px;
+    outline: 3px solid var(--gold);
+    outline-offset: 3px;
 }
 
-/* =================================
-   7. CONTACT FORM
-================================= */
+/* ===== CONTACT FORM ===== */
 
-#contact {
-    background-color: #e9edf3;
-}
-
-#contact-form {
+.contact-form {
     max-width: 600px;
-    margin: auto;
+    margin: 30px auto;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    text-align: left;
+    gap: 10px;
 }
 
-#contact-form input,
-#contact-form textarea {
+.contact-form label {
+    font-weight: bold;
+    color: var(--navy);
+}
+
+.contact-form input,
+.contact-form textarea {
     width: 100%;
     padding: 13px;
     border: 1px solid #cccccc;
     border-radius: 5px;
     font-size: 16px;
-    outline: none;
     font-family: Arial, sans-serif;
 }
 
-#contact-form input:focus,
-#contact-form textarea:focus {
-    border-color: var(--secondary-color);
-    box-shadow: 0 0 5px rgba(212, 175, 55, 0.4);
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: 2px solid var(--gold);
+    border-color: var(--gold);
 }
 
-#contact-form textarea {
-    min-height: 140px;
+.contact-form textarea {
+    min-height: 130px;
     resize: vertical;
 }
 
-#contact-form button {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 13px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
+.form-submit {
+    margin-top: 10px;
 }
 
-#contact-form button:hover {
-    background-color: var(--secondary-color);
-    color: var(--primary-color);
+/* ===== INTERACTION MESSAGES ===== */
+
+.interaction-message {
+    color: var(--gold);
+    font-weight: bold;
+    margin-top: 12px;
 }
 
-/* =================================
-   8. FOOTER
-================================= */
+/* ===== FOOTER ===== */
 
 footer {
-    background-color: var(--primary-color);
+    background: var(--navy);
     color: white;
     text-align: center;
     padding: 25px;
 }
 
 footer p {
-    margin: 5px 0;
+    margin: 5px;
 }
 
-/* =================================
-   9. DARK MODE
-================================= */
+/* ===== BACK TO TOP ===== */
 
-body.dark-theme {
-    --background-color: #101827;
-    --text-color: #eeeeee;
-    --card-color: #1c293b;
-    --primary-color: #d4af37;
-}
-
-body.dark-theme h1,
-body.dark-theme h2,
-body.dark-theme h3 {
-    color: var(--secondary-color);
-}
-
-body.dark-theme #contact {
-    background-color: #182438;
-}
-
-body.dark-theme .card,
-body.dark-theme .skill-card,
-body.dark-theme .project-card {
-    color: white;
-}
-
-body.dark-theme #contact-form input,
-body.dark-theme #contact-form textarea {
-    background-color: #1c293b;
-    color: white;
-    border-color: #526078;
-}
-
-/* =================================
-   10. BACK TO TOP BUTTON
-================================= */
-
-#back-to-top {
+.back-to-top {
     display: none;
     position: fixed;
     bottom: 25px;
     right: 25px;
-    background-color: var(--secondary-color);
-    color: var(--primary-color);
-    border: none;
-    border-radius: 50%;
     width: 45px;
     height: 45px;
-    font-size: 22px;
+    border: none;
+    border-radius: 50%;
+    background: var(--gold);
+    color: var(--navy);
+    font-size: 25px;
     font-weight: bold;
     z-index: 999;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
 }
 
-#back-to-top:hover {
-    transform: translateY(-5px);
+.back-to-top:hover {
+    transform: translateY(-4px);
 }
 
-/* =================================
-   11. RESPONSIVE DESIGN
-================================= */
+/* ===== DARK MODE ===== */
+
+body.dark-theme {
+    --white: #101827;
+    --light: #182438;
+    --text: #eeeeee;
+    --card: #223149;
+}
+
+body.dark-theme .section h2,
+body.dark-theme .card h3,
+body.dark-theme .contact-form label {
+    color: var(--gold);
+}
+
+body.dark-theme .card {
+    color: white;
+}
+
+body.dark-theme .contact-form input,
+body.dark-theme .contact-form textarea {
+    background: #223149;
+    color: white;
+    border-color: #526078;
+}
+
+/* ===== MOBILE RESPONSIVENESS ===== */
 
 @media (max-width: 768px) {
 
-    header {
-        flex-wrap: wrap;
-    }
-
-    #menu-toggle {
-        display: block;
-    }
-
-    nav {
-        width: 100%;
-    }
-
-    nav ul {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        padding-top: 15px;
+    .navbar {
         gap: 12px;
     }
 
-    nav ul.show {
+    .menu-toggle {
+        display: block;
+    }
+
+    .navbar ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        gap: 12px;
+        padding: 15px 0;
+    }
+
+    .navbar ul.show {
         display: flex;
     }
 
-    #home h1 {
+    .theme-toggle {
+        margin-left: auto;
+    }
+
+    .home h1 {
         font-size: 32px;
     }
 
-    #home p {
-        font-size: 17px;
+    .home h3 {
+        font-size: 19px;
     }
 
-    section {
+    .section {
         padding: 50px 5%;
     }
 
-    section h2 {
-        font-size: 25px;
+    .section h2 {
+        font-size: 26px;
     }
 }
 
 @media (max-width: 480px) {
 
-    #home h1 {
+    .home h1 {
         font-size: 27px;
     }
 
     .logo {
-        font-size: 19px;
+        font-size: 22px;
     }
 
-    .card,
-    .skill-card,
-    .project-card {
-        padding: 18px;
+    .theme-toggle {
+        font-size: 12px;
     }
 }
-
-/* =================================
-   12. REDUCED MOTION
-================================= */
 
 @media (prefers-reduced-motion: reduce) {
     *,
