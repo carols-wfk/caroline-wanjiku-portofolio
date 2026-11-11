@@ -395,6 +395,34 @@ body.dark-theme h3 {
     color: #d4af37;
 }
 
+/* Container adjustment for continuous scrolling */
+.home-content {
+    max-width: 800px;
+    overflow: hidden; /* Prevents text from causing page scrollbars */
+}
+
+.welcome-text {
+    font-size: 20px;
+    color: var(--gold);
+    display: inline-block;
+    white-space: nowrap;
+    animation: welcomeScroll 12s linear infinite;
+}
+
+/* Pause when visitor hovers */
+.welcome-text:hover {
+    animation-play-state: paused;
+}
+
+@keyframes welcomeScroll {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
 
 /* ===== MOBILE RESPONSIVENESS ===== */
 
