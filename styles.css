@@ -1,0 +1,447 @@
+
+/* =================================
+   1. GENERAL STYLING
+================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --primary-color: #0b1d36;
+    --secondary-color: #d4af37;
+    --background-color: #f5f7fa;
+    --text-color: #333333;
+    --card-color: #ffffff;
+    --transition: 0.3s ease;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    transition: var(--transition);
+}
+
+html {
+    scroll-padding-top: 80px;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+}
+
+h1, h2, h3 {
+    color: var(--primary-color);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    cursor: pointer;
+    font-family: inherit;
+}
+
+/* =================================
+   2. HEADER AND NAVIGATION
+================================= */
+
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 18px 5%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--secondary-color);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+nav ul li a {
+    color: white;
+    font-weight: bold;
+    transition: var(--transition);
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    color: var(--secondary-color);
+}
+
+/* Mobile menu button */
+
+#menu-toggle {
+    display: none;
+    background: transparent;
+    color: white;
+    border: 1px solid var(--secondary-color);
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+/* =================================
+   3. HERO / HOME SECTION
+================================= */
+
+#home {
+    min-height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(
+        135deg,
+        #0b1d36,
+        #193b65
+    );
+    color: white;
+}
+
+#home h1 {
+    color: white;
+    font-size: 45px;
+    margin-bottom: 15px;
+}
+
+#home p {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+#typing-text {
+    color: var(--secondary-color);
+    font-weight: bold;
+    border-right: 2px solid var(--secondary-color);
+    padding-right: 5px;
+}
+
+/* =================================
+   4. BUTTONS
+================================= */
+
+.btn,
+button {
+    transition: var(--transition);
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.btn:hover {
+    background-color: white;
+    transform: translateY(-3px);
+}
+
+/* =================================
+   5. GENERAL SECTIONS
+================================= */
+
+section {
+    padding: 70px 8%;
+}
+
+section h2 {
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+section h2::after {
+    content: "";
+    display: block;
+    width: 65px;
+    height: 4px;
+    background-color: var(--secondary-color);
+    margin: 10px auto;
+}
+
+#about p {
+    max-width: 850px;
+    margin: auto;
+    text-align: center;
+}
+
+/* =================================
+   6. EDUCATION, SKILLS AND PROJECTS
+================================= */
+
+.card-container,
+.skills-container,
+.projects-container {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(220px, 1fr)
+    );
+    gap: 25px;
+}
+
+.card,
+.skill-card,
+.project-card {
+    background-color: var(--card-color);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+}
+
+.card:hover,
+.skill-card:hover,
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.skill-card,
+.project-card {
+    cursor: pointer;
+}
+
+.skill-card.selected,
+.project-card.selected {
+    border: 2px solid var(--secondary-color);
+    transform: scale(1.03);
+}
+
+.skill-card:focus-visible,
+.project-card:focus-visible {
+    outline: 3px solid var(--secondary-color);
+    outline-offset: 4px;
+}
+
+/* =================================
+   7. CONTACT FORM
+================================= */
+
+#contact {
+    background-color: #e9edf3;
+}
+
+#contact-form {
+    max-width: 600px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#contact-form input,
+#contact-form textarea {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    font-family: Arial, sans-serif;
+}
+
+#contact-form input:focus,
+#contact-form textarea:focus {
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 5px rgba(212, 175, 55, 0.4);
+}
+
+#contact-form textarea {
+    min-height: 140px;
+    resize: vertical;
+}
+
+#contact-form button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 13px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#contact-form button:hover {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}
+
+/* =================================
+   8. FOOTER
+================================= */
+
+footer {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 25px;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+/* =================================
+   9. DARK MODE
+================================= */
+
+body.dark-theme {
+    --background-color: #101827;
+    --text-color: #eeeeee;
+    --card-color: #1c293b;
+    --primary-color: #d4af37;
+}
+
+body.dark-theme h1,
+body.dark-theme h2,
+body.dark-theme h3 {
+    color: var(--secondary-color);
+}
+
+body.dark-theme #contact {
+    background-color: #182438;
+}
+
+body.dark-theme .card,
+body.dark-theme .skill-card,
+body.dark-theme .project-card {
+    color: white;
+}
+
+body.dark-theme #contact-form input,
+body.dark-theme #contact-form textarea {
+    background-color: #1c293b;
+    color: white;
+    border-color: #526078;
+}
+
+/* =================================
+   10. BACK TO TOP BUTTON
+================================= */
+
+#back-to-top {
+    display: none;
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    font-size: 22px;
+    font-weight: bold;
+    z-index: 999;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+#back-to-top:hover {
+    transform: translateY(-5px);
+}
+
+/* =================================
+   11. RESPONSIVE DESIGN
+================================= */
+
+@media (max-width: 768px) {
+
+    header {
+        flex-wrap: wrap;
+    }
+
+    #menu-toggle {
+        display: block;
+    }
+
+    nav {
+        width: 100%;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        padding-top: 15px;
+        gap: 12px;
+    }
+
+    nav ul.show {
+        display: flex;
+    }
+
+    #home h1 {
+        font-size: 32px;
+    }
+
+    #home p {
+        font-size: 17px;
+    }
+
+    section {
+        padding: 50px 5%;
+    }
+
+    section h2 {
+        font-size: 25px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    #home h1 {
+        font-size: 27px;
+    }
+
+    .logo {
+        font-size: 19px;
+    }
+
+    .card,
+    .skill-card,
+    .project-card {
+        padding: 18px;
+    }
+}
+
+/* =================================
+   12. REDUCED MOTION
+================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
