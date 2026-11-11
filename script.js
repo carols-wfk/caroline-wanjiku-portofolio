@@ -1,12 +1,18 @@
 
 const themeToggle = document.getElementById("themeToggle");
 
-themeToggle.addEventListener("click", () => {
-    document.body.classList.toggle("dark-theme");
+if (themeToggle) {
+    themeToggle.addEventListener("click", function () {
 
-    themeToggle.textContent =
-        document.body.classList.contains("dark-theme")
-        ? "☀️ Light mode"
-        : "🌙 Dark mode";
-});
+        document.body.classList.toggle("dark-theme");
 
+        const darkMode = document.body.classList.contains("dark-theme");
+
+        themeToggle.textContent = darkMode
+            ? "☀️ Light mode"
+            : "🌙 Dark mode";
+
+        themeToggle.setAttribute("aria-pressed", darkMode);
+
+    });
+}
